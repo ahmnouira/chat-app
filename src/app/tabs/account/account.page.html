@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <ion-card>
+        <ion-thumbnail>
+            <ion-img src="assets/img/user-default.png"></ion-img>
+          </ion-thumbnail>
+        <ion-card-header>
+          <ion-card-subtitle>
+            {{user.email}}
+          </ion-card-subtitle>
+          <ion-card-title>
+            {{user.name}}
+          </ion-card-title>
+        </ion-card-header>
+
+      <ion-card-content>
+        <ion-button color="tertiary" shape="round" expand='block' (click)='update()'>Change Picture</ion-button>
+        <ion-button color="danger" shape="round" expand='block' (click)='logout()'>Logout</ion-button> 
+      </ion-card-content>
+
+    </ion-card>
+
+</ion-content>
