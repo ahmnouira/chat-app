@@ -16,6 +16,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { IonicStorageModule } from "@ionic/storage"; 
 import { ServicesModule } from './services/services.module';
 
+import { Camera } from '@ionic-native/camera/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -30,6 +32,7 @@ import { ServicesModule } from './services/services.module';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

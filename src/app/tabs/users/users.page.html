@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <ion-title>chat-app</ion-title>
     <ion-buttons slot="end">
-      <ion-spinner *ngIf="!users"></ion-spinner>
+      <ion-spinner name="bubbles" color="danger" *ngIf="!users"></ion-spinner>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -23,8 +23,11 @@
   <!-- users.key !== uid: exculeed the logging in  user  -->
   <div *ngFor="let user of users">
     <ion-item (click)="openChat(user.key)" *ngIf="user.key !== uid">
-      <ion-avatar slot="start">
+      <ion-avatar *ngIf="!user.picture" slot="start">
         <img src="/assets/img/user-default.png">
+      </ion-avatar>
+      <ion-avatar *ngIf="user.picture" slot="start">
+        <img src="{{user.picture}}">
       </ion-avatar>
       <ion-label>
         <h2>{{user.name}}</h2>
