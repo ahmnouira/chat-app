@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>chat-app</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,28 +8,37 @@
 
   <form [formGroup]="loginForm">
 
+  <ion-card>
+
+    <ion-card-header>    
+      <ion-card-title color="success">
+        <em>Login</em>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
     <ion-list>
 
       <ion-item>
         <ion-label position="floating"> Email:<ion-text color="danger"> *</ion-text></ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Email..."></ion-input>
+        <ion-input formControlName="email" clear-input="true" type="email" placeholder="Email..."></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="floating"> Password:<ion-text color="danger"> *</ion-text></ion-label>
-        <ion-input formControlName="password" type="password" placeholder="Password..."></ion-input>
+        <ion-input formControlName="password" clear-input="true" type="password" placeholder="Password..."></ion-input>
       </ion-item>
 
-      <ion-item>
-          <ion-label position="floating"> Name:<ion-text color="danger"> *</ion-text></ion-label>
-          <ion-input formControlName="name" type="text" placeholder="Name..."></ion-input>
-      </ion-item>
+      <ion-button (click)="sigin()" [disabled]="!loginForm.valid" shape="round" color="primary"><ion-icon slot="end" name="log-in"></ion-icon>Sign In</ion-button>
+      <ion-button  routerLink="/register" fill="clear" color="primary">Create an Account ?</ion-button> 
 
-      <ion-button (click)="sigin()" [disabled]="!loginForm.valid" expand="block" shape="round" color="tertiary"><ion-icon slot="end" name="log-in"></ion-icon>Sign In</ion-button>
-      <ion-button (click)="createAccount()" [disabled]="!loginForm.valid" expand="block" fill="clear" color="tertiary"><ion-icon slot="end" name="create"></ion-icon>Create an Account ?</ion-button> 
+      </ion-list>
        
-    </ion-list>
+    </ion-card-content>
 
+    </ion-card>
+    
   </form>
 
 </ion-content>

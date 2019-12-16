@@ -14,7 +14,6 @@ export class AuthService {
       return this.afAuth.auth; 
    }
 
-  
   // get the current User Id
    public getCurrentUserUid() : string {
     return this.afAuth.auth.currentUser.uid;
@@ -34,5 +33,5 @@ export class AuthService {
   public logout(): Promise<void> {
     return this.afAuth.auth.signOut();
   }
-
+  
   }

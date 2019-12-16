@@ -1,26 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Account</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>chat-app</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-    <ion-card>
-        <ion-thumbnail>
-            <ion-img src="assets/img/user-default.png"></ion-img>
-          </ion-thumbnail>
-        <ion-card-header>
-          <ion-card-subtitle>
-            {{user.email}}
-          </ion-card-subtitle>
-          <ion-card-title>
-            {{user.name}}
-          </ion-card-title>
-        </ion-card-header>
 
+    <ion-card>
+
+        <ion-card-header>
+            
+            <ion-card-title color="success">
+             <em>Account</em>
+            </ion-card-title>
+
+            <img src="assets/img/user-default.png" width="100px" height="200px">
+
+          </ion-card-header>
+           
       <ion-card-content>
-        <ion-button color="tertiary" shape="round" expand='block' (click)='update()'>Change Picture</ion-button>
-        <ion-button color="danger" shape="round" expand='block' (click)='logout()'>Logout</ion-button> 
+        <ion-list>
+            <ion-item> 
+                <b>Name</b>: {{user.name}}
+              </ion-item>
+              <ion-item> 
+                  <b>Email</b>: {{user.email}}
+                </ion-item>
+        </ion-list>        
+
+        <ion-button color="primary" shape= "round" (click)='update()'><ion-icon slot="end" name="image"></ion-icon>Change Picture</ion-button>
+        <ion-button color="danger" shape= "round"  (click)='logout()'><ion-icon slot="end" name="log-out"></ion-icon>Logout</ion-button> 
+
       </ion-card-content>
 
     </ion-card>

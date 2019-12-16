@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>chat-app</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+<form [formGroup]="registerForm">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="success">
+        <em>Create Account</em>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">Display Name:<ion-text color="danger"> *</ion-text> </ion-label>
+        <ion-input formControlName="name" type="text" clear-input="true" placeholder="Display Name..."></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Email:<ion-text color="danger"> *</ion-text> </ion-label>
+          <ion-input formControlName="email" type="email" clear-input="true" placeholder="Email..."></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Password: <ion-text color="danger"> *</ion-text> </ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Password..."></ion-input>
+      </ion-item>
+
+        <ion-button (click)="createAccount()" color="primary" shape="round"><ion-icon slot="end" name="person-add"></ion-icon>Create</ion-button>
+        <ion-button routerLink="/login" color="primary" fill="clear"> Login </ion-button>
+      
+    </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</form>
+
+</ion-content>

@@ -12,7 +12,7 @@ import { User } from 'src/app/models/user';
 })
 export class AccountPage implements OnInit {
 
-  user = {};
+  user : User = new User;
 
   constructor(private auth : AuthService, private storage: Storage, private userService: UserService, private router: Router) {
    this.userService.getUser().valueChanges().subscribe(data => { 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { map } from 'rxjs/operators';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-users',
@@ -9,15 +10,15 @@ import { map } from 'rxjs/operators';
 })
 export class UsersPage implements OnInit {
 
-  users : any[];
-  uid : any;
+  users : User[];
+  uid : string;
   constructor(public userService: UserService) {
    this.userService.getAllUsers().snapshotChanges().pipe(
       map(changes => changes.map(c => ({
         key : c.payload.key, ...c.payload.val()
       }))
       )).subscribe(users => { this.users = users; console.log(users)})
-      this. uid = this.userService.getUID();
+      this.uid = this.userService.getUID();
   }
 
   openChat(key: string) {
