@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
+import { ChatsService } from 'src/app/services/chats/chats.service';
+import { Chatter } from 'src/app/models/chatter';
+import { UtilService } from 'src/app/services/util/util.service';
 
 @Component({
   selector: 'app-users',
@@ -12,7 +16,9 @@ export class UsersPage implements OnInit {
 
   users : User[];
   uid : string;
-  constructor(public userService: UserService) {
+
+  constructor(private userService: UserService , private router: Router, private chatsService : ChatsService, private util : UtilService) {
+   this.util.doLoading('Please Wait...');
    this.userService.getAllUsers().snapshotChanges().pipe(
       map(changes => changes.map(c => ({
         key : c.payload.key, ...c.payload.val()
@@ -22,7 +28,11 @@ export class UsersPage implements OnInit {
   }
 
   openChat(key: string) {
-    alert(key);
+   this.chatsService.chatter =  {
+     uid : this.uid,
+     interlocutorUID : key
+   }
+    this.router.navigateByUrl('/chat-view')
   }
 
   ngOnInit() {

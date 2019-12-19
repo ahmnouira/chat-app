@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -15,7 +15,6 @@ import { AngularFireDatabaseModule } from "@angular/fire/database"          // u
 import { AngularFireAuthModule } from "@angular/fire/auth"; 
 import { IonicStorageModule } from "@ionic/storage"; 
 import { ServicesModule } from './services/services.module';
-
 import { Camera } from '@ionic-native/camera/ngx';
 
 @NgModule({
@@ -27,7 +26,8 @@ import { Camera } from '@ionic-native/camera/ngx';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     IonicStorageModule.forRoot(), 
-    ServicesModule
+    ServicesModule,
+    RouterModule
   ],
   providers: [
     StatusBar,

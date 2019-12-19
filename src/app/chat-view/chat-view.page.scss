@@ -1,0 +1,18 @@
+.messages {
+    width: 100%;
+    position: absolute;
+} 
+.message {
+    width: 65%;
+    padding: 5px 10px;   
+    border-radius: 5px;
+    margin: 5px;
+    float: left
+}
+.message.me {
+    float: right;
+    text-align: right
+}
+ion-item {
+    --border-radius: 20px;
+}

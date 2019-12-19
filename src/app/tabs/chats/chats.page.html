@@ -1,9 +1,43 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Chats</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+    <ion-toolbar color="primary">
+      <ion-title>chat-app</ion-title>
+      <ion-buttons slot="end">
+        <ion-spinner name="lines" color="light" *ngIf="!users"></ion-spinner>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content fullscreen>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="success">
+        <em>List of Users Chats</em>
+      </ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+  
+    <ion-list>
+    <!-- async unwarp [object] [object] -->
+   
+    <!-- users.key !== uid: exculeed the logging in  user  -->
+    <div *ngFor="let user of users">
+      <ion-item>
+        <ion-avatar *ngIf="!user.picture" slot="start">
+          <img src="/assets/img/user-default.png">
+        </ion-avatar>
+        <ion-avatar *ngIf="user.picture" slot="start">
+          <img src="{{user.picture}}">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{user.name}}</h2>
+          <p>{{user.email}}</p>
+        </ion-label>
+      </ion-item> 
+    </div>
+  
+    </ion-list>
+  </ion-card-content>
+  </ion-card>
+  </ion-content>
+  

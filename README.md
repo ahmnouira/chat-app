@@ -6,12 +6,7 @@ Our chat application will show a login page withe _e-mail_ and _password_ fields
 
 ## Overview 
 
-
-![account](/img/account.png)
+<img src="/img/account.png" width="375"/><img src="/img/users.png" width="375"/>
 
 ![register](/img/register.png)
-
 ![login](/img/login.png)
-
-
-![users](/img/users.png)

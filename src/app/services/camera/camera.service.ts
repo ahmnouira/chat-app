@@ -11,10 +11,9 @@ export class CameraService {
 
    }
 
-   getPicture() {
+   getPicture() : Promise<any> {
 
     let options: CameraOptions = {
-
      // quality: 100,  // quality  of the image 
       allowEdit: true,  // alow simple editing of the image before selection 
       saveToPhotoAlbum: true,
@@ -22,27 +21,18 @@ export class CameraService {
       sourceType : this.camera.PictureSourceType.PHOTOLIBRARY,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-
     };
-     // select the user object
-     let pictureRef = this.db.object(`/users/${this.userSevice.getUID()}`);
      // get the picture 
-     this.camera.getPicture(options).then((imageData) => {
-     let base64Image ='data:image/jpeg;base64,' + imageData;
-     // save the image data:image on that db 
-     pictureRef.update({picture: base64Image});
-   },(err) => {
-     console.log("Error ", err);
-   });
-
+     return this.camera.getPicture(options);
    }
 
-  
-
-
-
-  
-
-
-  
+   // getPicture() and updatePicture() returns promise ==> async 
+   async updatePicture() : Promise<any> {
+    // select the user object
+    let pictureRef = this.db.object(`/users/${this.userSevice.getUID()}`);
+    const imageData = await this.getPicture();
+    let base64Image : string = 'data:image/jpeg;base64,' + imageData;
+     // save the image data:image on that db 
+    pictureRef.update({ picture: base64Image });
+  }  
 }

@@ -7,18 +7,16 @@
 <ion-content fullscreen>
 
     <ion-card>
-
+      
         <ion-card-header>
-            
             <ion-card-title color="success">
              <em>Account</em>
             </ion-card-title>
-
+            <br>
             <img *ngIf="!user.picture" src="assets/img/user-default.png"  width="100px" height="200px">
             <img *ngIf="user.picture" src="{{user.picture}}">
-
           </ion-card-header>
-           
+
       <ion-card-content>
         <ion-list>
             <ion-item> 
