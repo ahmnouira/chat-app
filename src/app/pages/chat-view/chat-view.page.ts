@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChatsService } from '../services/chats/chats.service';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { CameraService } from '../services/camera/camera.service';
-import { Chat } from '../models/chat';
-import { User } from '../models/user';
-import { UtilService } from '../services/util/util.service';
+import { Chat } from 'src/app/models/chat';
+import { ChatsService } from 'src/app/services/chats/chats.service';
+import { UtilService } from 'src/app/services/util/util.service';
+import { CameraService } from 'src/app/services/camera/camera.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-chat-view',
@@ -35,7 +35,7 @@ export class ChatViewPage implements OnInit {
       this.db.list(chatRefPath).valueChanges().subscribe((chats :  Chat[]) => { console.log('chats', chats);  this.chats = chats }) ;
 
     }); 
-    this.db.object(`/users/${this.uid}`).valueChanges().subscribe((user : User) => this.uidData = user);
+    this.db.object(`/users/${this.uid}`).valueChanges().subscribe((user : User) => { console.log('loged user', user); this.uidData = user });
     this.db.object(`/users/${this.interlocutorUID}`).valueChanges().subscribe((user : User) => { console.log('interlo', user);  this.interlocutorUIDData = user });
   }
 

@@ -8,21 +8,21 @@ const routes: Routes = [
 
    {
       path: 'login',
-      loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+      loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
     }
 
     ,{ path: 'tabs',
-       loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule) 
+       loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule) 
   }, 
 
 
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'chat-view',
-    loadChildren: () => import('./chat-view/chat-view.module').then( m => m.ChatViewPageModule)
+    loadChildren: () => import('./pages/chat-view/chat-view.module').then( m => m.ChatViewPageModule)
   },
 
   { path: '**', redirectTo: '/login' }

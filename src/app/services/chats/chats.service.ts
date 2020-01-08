@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { UserService } from '../user/user.service';
-import { Chat } from 'src/app/models/chat';
 import { Chatter } from 'src/app/models/chatter';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class ChatsService {
  
 
   constructor(private db : AngularFireDatabase, private userService: UserService) { 
-    this.chatter = new Chatter;
+    this.chatter = new Chatter();
    
   }
 

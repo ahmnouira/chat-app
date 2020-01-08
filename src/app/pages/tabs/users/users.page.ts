@@ -4,7 +4,6 @@ import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 import { ChatsService } from 'src/app/services/chats/chats.service';
-import { Chatter } from 'src/app/models/chatter';
 import { UtilService } from 'src/app/services/util/util.service';
 
 @Component({

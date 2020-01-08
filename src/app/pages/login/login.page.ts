@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth/auth.service';
 import { Storage } from '@ionic/storage';
-import { UtilService } from '../services/util/util.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { UtilService } from 'src/app/services/util/util.service';
 
 @Component({
   selector: 'app-login',
